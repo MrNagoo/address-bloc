@@ -48,8 +48,18 @@ class AddressBook
         lower = mid + 1
       end
     end
-    
+
     return nil
+  end
+
+  def interative_search(name)
+    entries.each do |names|
+      if names == name
+        return names
+      else
+        return nil
+      end
+    end
   end
 
 end
