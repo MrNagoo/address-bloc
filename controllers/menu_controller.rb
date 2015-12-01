@@ -14,7 +14,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - Annihilate all entries"
+    puts "6 - Exit"
     print "Enter your selection: "
 
 # #3
@@ -39,6 +40,10 @@ class MenuController
        read_csv
        main_menu
      when 5
+       system "clear"
+       annihilate_entries
+       main_menu
+     when 6
        puts "Good-bye!"
  # #8
        exit(0)
@@ -158,6 +163,19 @@ class MenuController
 
      puts "Updated entry: "
      puts entry
+   end
+
+   def annihilate_entries
+     print "Are you ready for utter destruction? y/n: "
+     selection = gets.chomp
+     if selection == "y"
+       @address_book = []
+       main_menu
+     else
+       system "clear"
+       puts "you wimp!"
+       main_menu
+     end
    end
 
    def entry_submenu(entry)
